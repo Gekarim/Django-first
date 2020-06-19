@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Boards list {% endblock title %}
+{% block content %}
+    <h1>Boards list</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Board</th>
+                <th>Topics</th>
+                <th>Posts</th>
+                <th>Last Post</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for board in boards_list %}
+                <tr>
+                    <td>
+                        <a href="{% url 'board-details' board.pk %}">{{ board.name }}</a><br>
+                        <small style="color: #888;">{{ board.description }}</small>
+                    </td>
+                    <td class="align-middle">0</td>
+                    <td class="align-middle">0</td>
+                    <td>Nothing posted</td> 
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
